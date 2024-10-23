@@ -64,7 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Email",
                       style: TextStyle(
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
@@ -73,7 +73,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       cursorColor: AppThemeColors.kPrimaryButtonColor,
-                      decoration: InputDecoration(hintText: "Enter your email"),
+                      decoration:
+                          const InputDecoration(hintText: "Enter your email"),
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
                           return "Enter an email address";
@@ -89,7 +90,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       },
                     ),
                     SizedBox(height: 3.h),
-                    Text(
+                    const Text(
                       "Password",
                       style: TextStyle(
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
@@ -98,7 +99,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     TextFormField(
                       obscureText: true,
                       cursorColor: AppThemeColors.kPrimaryButtonColor,
-                      decoration: InputDecoration(hintText: "Enter password"),
+                      decoration:
+                          const InputDecoration(hintText: "Enter password"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Enter password";
@@ -143,7 +145,7 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(height: 4.h),
               Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Divider(
                       thickness: 0.5,
                       color: Colors.white,
@@ -160,7 +162,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ),
                   SizedBox(width: 4.w),
-                  Expanded(
+                  const Expanded(
                     child: Divider(
                       thickness: 0.5,
                       color: Colors.white,

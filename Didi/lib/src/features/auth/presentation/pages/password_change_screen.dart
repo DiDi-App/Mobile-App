@@ -24,6 +24,7 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
     }
   }
 
+  @override
   void dispose() {
     _password1Controller.dispose();
     _password2Controller.dispose();
@@ -38,7 +39,7 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             color: AppThemeColors.kWhiteColor,
           ),
         ),
@@ -72,7 +73,7 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Password",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
@@ -84,8 +85,8 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
                         obscureText: true,
                         cursorColor: AppThemeColors.kPrimaryButtonColor,
                         controller: _password1Controller,
-                        decoration:
-                            InputDecoration(hintText: "Enter new password"),
+                        decoration: const InputDecoration(
+                            hintText: "Enter new password"),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Enter password";
@@ -96,7 +97,7 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
                         },
                       ),
                       SizedBox(height: 3.h),
-                      Text(
+                      const Text(
                         "Confirm Password",
                         style: TextStyle(
                             fontWeight: FontWeight.w700, fontFamily: "Poppins"),
@@ -107,7 +108,7 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
                         cursorColor: AppThemeColors.kPrimaryButtonColor,
                         controller: _password2Controller,
                         decoration:
-                            InputDecoration(hintText: "Confirm Password"),
+                            const InputDecoration(hintText: "Confirm Password"),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Confirm password";

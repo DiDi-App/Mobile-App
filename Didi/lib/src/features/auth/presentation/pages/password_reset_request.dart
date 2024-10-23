@@ -36,7 +36,7 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           color: AppThemeColors.kWhiteColor,
         ),
       ),
@@ -69,7 +69,7 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Email Address",
                     style: TextStyle(
                         fontWeight: FontWeight.w700, fontFamily: "Poppins"),
@@ -78,8 +78,8 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     cursorColor: AppThemeColors.kPrimaryButtonColor,
-                    decoration:
-                        InputDecoration(hintText: "Enter your email address"),
+                    decoration: const InputDecoration(
+                        hintText: "Enter your email address"),
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
                         return "Enter an email address";

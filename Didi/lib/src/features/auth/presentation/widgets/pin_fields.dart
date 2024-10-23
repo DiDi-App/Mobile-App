@@ -27,7 +27,7 @@ class PinField extends StatelessWidget {
         ],
         decoration: InputDecoration(
           hintText: "0",
-          errorStyle: TextStyle(height: 0),
+          errorStyle: const TextStyle(height: 0),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(7),
             borderSide: const BorderSide(width: 0),

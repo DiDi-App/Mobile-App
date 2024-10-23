@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/theme/theme_colors.dart';
@@ -40,7 +39,7 @@ class _OtpScreenState extends State<OtpScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           color: AppThemeColors.kWhiteColor,
         ),
       ),
@@ -123,7 +122,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       onChanged: (String val) {
                         _input4 = val;
                         if (val.length != 1) {
-                          FocusScope.of(context).previousFocus();1
+                          FocusScope.of(context).previousFocus();
                         }
                       },
                     ),

@@ -28,6 +28,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
   }
 
+  @override
   void dispose() {
     _password1Controller.dispose();
     _password2Controller.dispose();
@@ -70,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Email",
                       style: TextStyle(
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
@@ -79,7 +80,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       cursorColor: AppThemeColors.kPrimaryButtonColor,
-                      decoration: InputDecoration(hintText: "Enter email"),
+                      decoration:
+                          const InputDecoration(hintText: "Enter email"),
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
                           return "Enter an email address";
@@ -92,7 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       },
                     ),
                     SizedBox(height: 3.h),
-                    Text(
+                    const Text(
                       "Password",
                       style: TextStyle(
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
@@ -103,7 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       cursorColor: AppThemeColors.kPrimaryButtonColor,
                       controller: _password1Controller,
                       decoration:
-                          InputDecoration(hintText: "Create a password"),
+                          const InputDecoration(hintText: "Create a password"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Enter password";
@@ -114,7 +116,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       },
                     ),
                     SizedBox(height: 3.h),
-                    Text(
+                    const Text(
                       "Confirm Password",
                       style: TextStyle(
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
@@ -124,8 +126,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       obscureText: true,
                       cursorColor: AppThemeColors.kPrimaryButtonColor,
                       controller: _password2Controller,
-                      decoration:
-                          InputDecoration(hintText: "Confirm your password"),
+                      decoration: const InputDecoration(
+                          hintText: "Confirm your password"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Confirm password";
@@ -149,7 +151,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 4.h),
               Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Divider(
                       thickness: 0.5,
                       color: Colors.white,
@@ -166,7 +168,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   SizedBox(width: 4.w),
-                  Expanded(
+                  const Expanded(
                     child: Divider(
                       thickness: 0.5,
                       color: Colors.white,
