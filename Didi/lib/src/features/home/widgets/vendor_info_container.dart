@@ -14,7 +14,7 @@ class VendorInfoContainer extends StatelessWidget {
         color: AppThemeColors.kContainerColor,
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12.w),
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.3.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +23,8 @@ class VendorInfoContainer extends StatelessWidget {
               "Sweet Sweet Lamin - Night Market",
               style: TextStyle(
                 fontFamily: "Poppins",
-                fontSize: 16.3.sp,
+                fontSize: 16.5.sp,
+                height: 1.2,
                 fontWeight: FontWeight.w600,
                 color: AppThemeColors.kWhiteColor,
               ),
@@ -34,13 +35,13 @@ class VendorInfoContainer extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       "assets/svg/Vector.svg",
-                      height: 1.5.h,
+                      height: 1.7.h,
                     ),
                     Text(
                       "4.5",
                       style: TextStyle(
                         fontFamily: "Poppins",
-                        fontSize: 13.sp,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -51,13 +52,13 @@ class VendorInfoContainer extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       "assets/svg/motorbike.svg",
-                      height: 1.5.h,
+                      height: 2.h,
                     ),
                     Text(
                       "Delivery",
                       style: TextStyle(
                         fontFamily: "Poppins",
-                        fontSize: 13.sp,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -77,7 +78,7 @@ class VendorInfoContainer extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       "assets/svg/moped.svg",
-                      height: 3.h,
+                      height: 3.4.h,
                     ),
                     const SizedBox(width: 5),
                     Column(
@@ -86,7 +87,7 @@ class VendorInfoContainer extends StatelessWidget {
                           "GHC 7.00",
                           style: TextStyle(
                             fontFamily: "Poppins",
-                            fontSize: 12.5.sp,
+                            fontSize: 13.3.sp,
                             fontWeight: FontWeight.w600,
                             color: AppThemeColors.kPrimaryButtonColor,
                             height: 1.2,
@@ -96,7 +97,7 @@ class VendorInfoContainer extends StatelessWidget {
                           "15 - 30 mins",
                           style: TextStyle(
                             fontFamily: "Poppins",
-                            fontSize: 12.5.sp,
+                            fontSize: 13.5.sp,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -104,9 +105,9 @@ class VendorInfoContainer extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Icon(
+                Icon(
                   Icons.arrow_forward_ios,
-                  size: 17,
+                  size: 17.sp,
                   color: AppThemeColors.kDividerColor,
                 ),
               ],

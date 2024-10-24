@@ -52,7 +52,7 @@ class Homepage extends StatelessWidget {
                           style: TextStyle(
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.w400,
-                            fontSize: 15.sp,
+                            fontSize: 16.sp,
                           ),
                           children: [
                             TextSpan(
@@ -61,7 +61,7 @@ class Homepage extends StatelessWidget {
                                 fontFamily: "Poppins",
                                 color: AppThemeColors.kWhiteColor,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 15.5.sp,
+                                fontSize: 16.5.sp,
                               ),
                             ),
                           ],
@@ -71,14 +71,14 @@ class Homepage extends StatelessWidget {
                         "How is your day going?",
                         style: TextStyle(
                           fontFamily: "Poppins",
-                          fontSize: 12.sp,
+                          fontSize: 12.5.sp,
                         ),
                       )
                     ],
                   ),
                   SvgPicture.asset(
                     "assets/svg/cart.svg",
-                    height: 4.h,
+                    height: 4.3.h,
                   ),
                 ],
               ),
@@ -131,7 +131,7 @@ class Homepage extends StatelessWidget {
                   childAspectRatio: 60 / 51,
                   mainAxisSpacing: 2.h,
                 ),
-                itemCount: 5,
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   return const MealItem();
                 },

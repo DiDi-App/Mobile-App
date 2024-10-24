@@ -16,8 +16,8 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _password1Controller = TextEditingController();
+  final _emailController = TextEditingController();
+  final _password1Controller = TextEditingController();
 
   void _onSubmitForm() {
     if (_formKey.currentState!.validate()) {

@@ -17,7 +17,7 @@ class VendorScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: 36.h,
+            height: 38.h,
             child: Stack(
               children: [
                 FadeInImage(
@@ -48,7 +48,6 @@ class VendorScreen extends StatelessWidget {
                 Positioned(
                   bottom: 0,
                   left: 0,
-                  height: 16.h,
                   width: 100.w,
                   child: const VendorInfoContainer(),
                 ),
@@ -75,7 +74,7 @@ class VendorScreen extends StatelessWidget {
                       "Main Dishes",
                       style: TextStyle(
                         fontFamily: "Poppins",
-                        fontSize: 16.3.sp,
+                        fontSize: 16.5.sp,
                         fontWeight: FontWeight.w600,
                         color: AppThemeColors.kWhiteColor,
                         height: 1.2,
@@ -86,7 +85,7 @@ class VendorScreen extends StatelessWidget {
                       child: ListView.builder(
                         shrinkWrap: true,
                         padding: EdgeInsets.zero,
-                        itemCount: 4,
+                        itemCount: 6,
                         itemBuilder: (context, index) {
                           return Column(
                             children: [

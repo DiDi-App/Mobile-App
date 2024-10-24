@@ -1,4 +1,5 @@
 import 'package:didi/src/core/constants.dart';
+import 'package:didi/src/features/auth/widgets/auth_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -14,7 +15,7 @@ class ResetPasswordRequest extends StatefulWidget {
 
 class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
   final _formKey = GlobalKey<FormState>();
-  String _email = "";
+  final _emailController = TextEditingController();
 
   void _onSubmitForm() {
     if (_formKey.currentState!.validate()) {
@@ -22,7 +23,7 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
       Navigator.pushNamed(
         context,
         '/otpVerification',
-        arguments: {"email": _email},
+        arguments: {"email": _emailController.text.trim()},
       );
     } else {
       return;
@@ -76,11 +77,10 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
                         fontWeight: FontWeight.w700, fontFamily: "Poppins"),
                   ),
                   SizedBox(height: 1.h),
-                  TextFormField(
+                  AuthInputField(
+                    controller: _emailController,
+                    hintText: "Enter your email address",
                     keyboardType: TextInputType.emailAddress,
-                    cursorColor: AppThemeColors.kPrimaryButtonColor,
-                    decoration: const InputDecoration(
-                        hintText: "Enter your email address"),
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
                         return "Enter an email address";
@@ -90,9 +90,6 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
                         return "Enter a valid email address";
                       }
                       return null;
-                    },
-                    onSaved: (value) {
-                      _email = value!;
                     },
                   ),
                   SizedBox(height: 2.3.h),

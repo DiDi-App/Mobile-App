@@ -50,7 +50,7 @@ class ThemeConfig {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
         labelStyle: TextStyle(
           fontFamily: "Poppins",
-          fontSize: 11.sp,
+          fontSize: 12.sp,
           fontWeight: FontWeight.w600,
           color: AppThemeColors.kWhiteColor,
         ),

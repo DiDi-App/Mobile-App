@@ -48,7 +48,7 @@ class _TabBarPageState extends State<TabBarPage> {
           items: [
             BottomNavigationBarItem(
               icon: Padding(
-                padding: const EdgeInsets.only(top: 17),
+                padding: const EdgeInsets.only(top: 14),
                 child: Icon(
                   Icons.home_outlined,
                   size: 19.sp,
@@ -58,7 +58,7 @@ class _TabBarPageState extends State<TabBarPage> {
             ),
             BottomNavigationBarItem(
               icon: Padding(
-                padding: const EdgeInsets.only(top: 17),
+                padding: const EdgeInsets.only(top: 14),
                 child: Icon(
                   Icons.search,
                   size: 19.sp,
@@ -68,7 +68,7 @@ class _TabBarPageState extends State<TabBarPage> {
             ),
             BottomNavigationBarItem(
               icon: Padding(
-                padding: const EdgeInsets.only(top: 17),
+                padding: const EdgeInsets.only(top: 14),
                 child: Icon(
                   Icons.menu_sharp,
                   size: 19.sp,
@@ -78,7 +78,7 @@ class _TabBarPageState extends State<TabBarPage> {
             ),
             BottomNavigationBarItem(
               icon: Padding(
-                padding: const EdgeInsets.only(top: 17),
+                padding: const EdgeInsets.only(top: 14),
                 child: Icon(
                   Icons.settings,
                   size: 19.sp,

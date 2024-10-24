@@ -21,7 +21,7 @@ class MenuItem extends StatelessWidget {
                 "Fried Rice and Chicken",
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 13.5.sp,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
                   color: AppThemeColors.kWhiteColor,
                   height: 1.2,
@@ -32,7 +32,7 @@ class MenuItem extends StatelessWidget {
                 "Served with plantain, salad, egg and chicken",
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 12.sp,
+                  fontSize: 12.5.sp,
                   fontWeight: FontWeight.w400,
                   color: AppThemeColors.kLightTextColor,
                   height: 1.2,
@@ -43,7 +43,7 @@ class MenuItem extends StatelessWidget {
                 "From GHC 6.0",
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 13.5.sp,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
                   color: AppThemeColors.kPrimaryButtonColor,
                   height: 1.2,
@@ -58,7 +58,7 @@ class MenuItem extends StatelessWidget {
             color: AppThemeColors.kPrimaryBackgroundColor,
           ),
           clipBehavior: Clip.hardEdge,
-          height: 65,
+          height: 7.5.h,
           width: 125,
           child: FadeInImage(
             placeholder: MemoryImage(kTransparentImage),

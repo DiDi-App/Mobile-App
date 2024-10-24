@@ -19,7 +19,7 @@ class MealItem extends StatelessWidget {
                 color: AppThemeColors.kTextFieldColor),
             clipBehavior: Clip.hardEdge,
             width: double.infinity,
-            height: 12.5.h,
+            height: 12.h,
             child: FadeInImage(
               placeholder: MemoryImage(kTransparentImage),
               image: const NetworkImage(
@@ -35,7 +35,7 @@ class MealItem extends StatelessWidget {
                 "Sweet Sweet Lamin",
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 13.sp,
+                  fontSize: 13.5.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -47,7 +47,7 @@ class MealItem extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(height: 3),
+          const SizedBox(height: 1),
           Row(
             children: [
               Icon(
@@ -60,7 +60,7 @@ class MealItem extends StatelessWidget {
                 "30 - 40 mins",
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 11.5.sp,
+                  fontSize: 12.3.sp,
                   fontWeight: FontWeight.w500,
                   color: AppThemeColors.kPrimaryButtonColor,
                 ),

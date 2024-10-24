@@ -21,7 +21,7 @@ class AnnouncementCard extends StatelessWidget {
             image: const NetworkImage(
               "https://s3-alpha-sig.figma.com/img/7c7c/531b/3da34e93e27d789f8c8aa942ef6a80a3?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=LCWZZmJNwRL7UzJ5oPZ6GxSIl~QeWLZr91ES4qQs2lj8qrnjDD7yWfxc6-spmsN4J1xxdETnnAMnOcmn75wTcojqdHn02Tj6rnhaHDw6IMD1latxCL140-vHXV~BqekxWZoyV1pA2toD8AxIoVn-J-Jp3qY-rVR4PIlSN8b8DTOzHtkQbKXTw2kPbAKx0IQgI3E1CZPWgy95cfIc3ZguF8A5ssdvbFC3gVjIADDbR7oQwQSwXh4F8-~a38qAc-ZzFTxyS0eXeTJRvTZdsvlr2SrIQkHpzdCqYczUDticImvfky696aBGD4y-9HeacMjBXwrfJp9loyZkiJlq0FBkzA__",
             ),
-            height: 13.5.h,
+            height: 14.h,
             width: double.infinity,
             fit: BoxFit.cover,
           ),
@@ -41,7 +41,7 @@ class AnnouncementCard extends StatelessWidget {
                       // fontFamily: "Poppins",
                       fontWeight: FontWeight.w800,
                       color: AppThemeColors.kWhiteColor,
-                      fontSize: 14.8.sp,
+                      fontSize: 15.3.sp,
                     ),
                   ),
                   const SizedBox(height: 5),
@@ -57,7 +57,7 @@ class AnnouncementCard extends StatelessWidget {
                       style: TextStyle(
                         color: AppThemeColors.kWhiteColor,
                         fontFamily: "Poppins",
-                        fontSize: 12.sp,
+                        fontSize: 13.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

@@ -1,4 +1,5 @@
 import 'package:didi/src/core/constants.dart';
+import 'package:didi/src/features/auth/widgets/auth_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -14,8 +15,8 @@ class PasswordChangeScreen extends StatefulWidget {
 
 class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _password1Controller = TextEditingController();
-  final TextEditingController _password2Controller = TextEditingController();
+  final _password1Controller = TextEditingController();
+  final _password2Controller = TextEditingController();
 
   void _onSubmitForm() {
     if (_formKey.currentState!.validate()) {
@@ -83,12 +84,10 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
                         ),
                       ),
                       SizedBox(height: 1.h),
-                      TextFormField(
-                        obscureText: true,
-                        cursorColor: AppThemeColors.kPrimaryButtonColor,
+                      AuthInputField(
                         controller: _password1Controller,
-                        decoration: const InputDecoration(
-                            hintText: "Enter new password"),
+                        hintText: "Enter new password",
+                        obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Enter password";
@@ -105,12 +104,10 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
                             fontWeight: FontWeight.w700, fontFamily: "Poppins"),
                       ),
                       SizedBox(height: 1.h),
-                      TextFormField(
-                        obscureText: true,
-                        cursorColor: AppThemeColors.kPrimaryButtonColor,
+                      AuthInputField(
                         controller: _password2Controller,
-                        decoration:
-                            const InputDecoration(hintText: "Confirm Password"),
+                        hintText: "Confirm password",
+                        obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Confirm password";
