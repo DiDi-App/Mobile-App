@@ -1,8 +1,9 @@
+import 'package:didi/src/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
-import 'package:didi/src/core/theme/theme_colors.dart';
+import 'package:didi/src/features/auth/widgets/auth_input_field.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
 import '../widgets/signup_icons.dart';
 
@@ -15,18 +16,24 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   final _formKey = GlobalKey<FormState>();
-  String _email = "";
-  String _password1 = "";
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _password1Controller = TextEditingController();
 
   void _onSubmitForm() {
     if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      debugPrint(_email);
-      debugPrint(_password1);
-      //   You can make ur request from this place forward;
+      debugPrint(_emailController.text.trim());
+      debugPrint(_password1Controller.text.trim());
+      Navigator.of(context).pushNamed("/homePage");
     } else {
       return;
     }
+  }
+
+  @override
+  void dispose() {
+    _password1Controller.dispose();
+    _emailController.dispose();
+    super.dispose();
   }
 
   @override
@@ -35,7 +42,8 @@ class _SignInScreenState extends State<SignInScreen> {
         body: SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 7.w),
+          padding:
+              EdgeInsets.symmetric(horizontal: Constants.horizontalPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -70,11 +78,10 @@ class _SignInScreenState extends State<SignInScreen> {
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
                     ),
                     SizedBox(height: 1.h),
-                    TextFormField(
+                    AuthInputField(
+                      controller: _emailController,
+                      hintText: "Enter your email",
                       keyboardType: TextInputType.emailAddress,
-                      cursorColor: AppThemeColors.kPrimaryButtonColor,
-                      decoration:
-                          const InputDecoration(hintText: "Enter your email"),
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
                           return "Enter an email address";
@@ -85,9 +92,6 @@ class _SignInScreenState extends State<SignInScreen> {
                         }
                         return null;
                       },
-                      onSaved: (value) {
-                        _email = value!;
-                      },
                     ),
                     SizedBox(height: 3.h),
                     const Text(
@@ -96,11 +100,10 @@ class _SignInScreenState extends State<SignInScreen> {
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
                     ),
                     SizedBox(height: 1.h),
-                    TextFormField(
+                    AuthInputField(
+                      controller: _password1Controller,
+                      hintText: "Enter password",
                       obscureText: true,
-                      cursorColor: AppThemeColors.kPrimaryButtonColor,
-                      decoration:
-                          const InputDecoration(hintText: "Enter password"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Enter password";
@@ -108,9 +111,6 @@ class _SignInScreenState extends State<SignInScreen> {
                           return "Password should be more than 6 characters";
                         }
                         return null;
-                      },
-                      onSaved: (value) {
-                        _password1 = value!;
                       },
                     ),
                     SizedBox(height: 0.8.h),

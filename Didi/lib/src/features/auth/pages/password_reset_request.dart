@@ -1,3 +1,4 @@
+import 'package:didi/src/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -41,7 +42,7 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 7.w),
+        padding: EdgeInsets.symmetric(horizontal: Constants.horizontalPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

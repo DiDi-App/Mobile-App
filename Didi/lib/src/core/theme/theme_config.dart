@@ -1,6 +1,5 @@
 import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
-
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ThemeConfig {
@@ -22,6 +21,13 @@ class ThemeConfig {
           ),
           borderRadius: BorderRadius.circular(5),
         ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: AppThemeColors.kPrimaryButtonColor,
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
         errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             width: 1,
@@ -32,21 +38,6 @@ class ThemeConfig {
         labelStyle: const TextStyle(
           color: AppThemeColors.kWhiteColor,
         ),
-        contentPadding: EdgeInsets.all(1.8.h),
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: AppThemeColors.kWhiteColor,
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(5),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: AppThemeColors.kPrimaryButtonColor,
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(10),
-        ),
       ),
       buttonTheme: const ButtonThemeData().copyWith(
         buttonColor: AppThemeColors.kPrimaryButtonColor,
@@ -54,10 +45,31 @@ class ThemeConfig {
           borderRadius: BorderRadius.circular(14.0),
         ),
       ),
-
-      // textTheme: CustomTextStyles.kDefaultTextTheme(
-      //   AppDarkThemeColors.smallTextColorDark,
-      // ),
+      chipTheme: ChipThemeData(
+        backgroundColor: AppThemeColors.kTextFieldColor,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+        labelStyle: TextStyle(
+          fontFamily: "Poppins",
+          fontSize: 11.sp,
+          fontWeight: FontWeight.w600,
+          color: AppThemeColors.kWhiteColor,
+        ),
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        elevation: 1,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: AppThemeColors.kBottonNavigationBarColor,
+        selectedItemColor: AppThemeColors.kPrimaryButtonColor,
+        selectedLabelStyle: TextStyle(
+          color: AppThemeColors.kPrimaryButtonColor,
+          fontSize: 13.3.sp,
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 13.3.sp,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );
   }
 

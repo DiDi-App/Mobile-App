@@ -1,8 +1,9 @@
+import 'package:didi/src/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/theme/theme_colors.dart';
-import 'package:didi/src/features/auth/presentation/widgets/pin_fields.dart';
+import 'package:didi/src/features/auth/widgets/pin_fields.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -44,7 +45,7 @@ class _OtpScreenState extends State<OtpScreen> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 7.w),
+        padding: EdgeInsets.symmetric(horizontal: Constants.horizontalPadding),
         child: Center(
           child: Column(
             children: [

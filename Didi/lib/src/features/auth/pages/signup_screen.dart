@@ -1,8 +1,9 @@
+import 'package:didi/src/core/constants.dart';
+import 'package:didi/src/features/auth/widgets/auth_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
 import '../widgets/signup_icons.dart';
 
@@ -21,8 +22,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   void _onSubmitForm() {
     if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      //   You can make ur request from this place forward;
+      debugPrint(_emailController.text.trim());
+      debugPrint(_password1Controller.text.trim());
+      debugPrint(_password2Controller.text.trim());
     } else {
       return;
     }
@@ -42,7 +44,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         body: SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 7.w),
+          padding:
+              EdgeInsets.symmetric(horizontal: Constants.horizontalPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -77,11 +80,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
                     ),
                     SizedBox(height: 1.h),
-                    TextFormField(
+                    AuthInputField(
+                      controller: _emailController,
+                      hintText: "Enter your email",
                       keyboardType: TextInputType.emailAddress,
-                      cursorColor: AppThemeColors.kPrimaryButtonColor,
-                      decoration:
-                          const InputDecoration(hintText: "Enter email"),
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
                           return "Enter an email address";
@@ -100,12 +102,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
                     ),
                     SizedBox(height: 1.h),
-                    TextFormField(
+                    AuthInputField(
                       obscureText: true,
-                      cursorColor: AppThemeColors.kPrimaryButtonColor,
                       controller: _password1Controller,
-                      decoration:
-                          const InputDecoration(hintText: "Create a password"),
+                      hintText: "Create a password",
+                      keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Enter password";
@@ -122,12 +123,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           fontWeight: FontWeight.w600, fontFamily: "Poppins"),
                     ),
                     SizedBox(height: 1.h),
-                    TextFormField(
+                    AuthInputField(
                       obscureText: true,
-                      cursorColor: AppThemeColors.kPrimaryButtonColor,
                       controller: _password2Controller,
-                      decoration: const InputDecoration(
-                          hintText: "Confirm your password"),
+                      hintText: "Confirm your password",
+                      keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Confirm password";

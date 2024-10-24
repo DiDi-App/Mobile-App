@@ -1,3 +1,4 @@
+import 'package:didi/src/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -15,7 +16,7 @@ class _PasswordResetCompleteState extends State<PasswordResetComplete> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 7.w),
+        padding: EdgeInsets.symmetric(horizontal: Constants.horizontalPadding),
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,

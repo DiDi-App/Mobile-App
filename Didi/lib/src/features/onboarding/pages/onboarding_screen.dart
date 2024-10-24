@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:didi/src/features/onboarding/presentation/pages/onboarding_screen1.dart';
-import 'package:didi/src/features/onboarding/presentation/pages/onboarding_screen2.dart';
-import 'package:didi/src/features/onboarding/presentation/pages/onboarding_screen3.dart';
-import 'package:didi/src/features/onboarding/presentation/pages/onboarding_screen4.dart';
+import 'package:didi/src/features/onboarding/pages/onboarding_screen1.dart';
+import 'package:didi/src/features/onboarding/pages/onboarding_screen2.dart';
+import 'package:didi/src/features/onboarding/pages/onboarding_screen3.dart';
+import 'package:didi/src/features/onboarding/pages/onboarding_screen4.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
