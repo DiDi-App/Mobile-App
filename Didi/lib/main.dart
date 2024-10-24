@@ -1,4 +1,5 @@
 import 'package:didi/src/features/home/screen/tab_bar_view.dart';
+import 'package:didi/src/features/home/screen/vendor_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -35,6 +36,7 @@ class MainApp extends StatelessWidget {
             '/passwordResetComplete': (context) =>
                 const PasswordResetComplete(),
             '/homePage': (context) => const TabBarPage(),
+            '/vendorPage': (context) => const VendorScreen(),
           },
           debugShowCheckedModeBanner: false,
           darkTheme: ThemeConfig().darkTheme,

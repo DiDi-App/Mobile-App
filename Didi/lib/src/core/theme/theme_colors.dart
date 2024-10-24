@@ -8,4 +8,7 @@ class AppThemeColors {
   static const kOnboardingShadowColor = Color.fromRGBO(156, 156, 207, 0.7);
   static const kTextFieldColor = Color.fromRGBO(255, 255, 255, 0.1);
   static const kBottonNavigationBarColor = Color.fromRGBO(15, 15, 22, 1);
+  static const kContainerColor = Color.fromRGBO(46, 46, 58, 1);
+  static const kDividerColor = Color.fromRGBO(210, 210, 210, 0.5);
+  static const kLightTextColor = Color.fromRGBO(188, 188, 188, 1);
 }
