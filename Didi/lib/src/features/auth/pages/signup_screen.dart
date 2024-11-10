@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/widgets/custom_button.dart';
+import 'package:routemaster/routemaster.dart';
 import '../widgets/signup_icons.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -216,7 +217,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            Navigator.pushReplacementNamed(context, '/signIn');
+                            Routemaster.of(context).replace("/signIn");
                           },
                       ),
                     ],

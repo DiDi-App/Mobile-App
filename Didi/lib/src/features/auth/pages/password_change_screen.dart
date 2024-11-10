@@ -5,6 +5,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
+import 'package:routemaster/routemaster.dart';
 
 class PasswordChangeScreen extends StatefulWidget {
   const PasswordChangeScreen({super.key});
@@ -20,7 +21,7 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
 
   void _onSubmitForm() {
     if (_formKey.currentState!.validate()) {
-      Navigator.pushNamed(context, "/passwordResetComplete");
+      Routemaster.of(context).push('/passwordResetComplete');
     } else {
       return;
     }
@@ -39,7 +40,7 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              Routemaster.of(context).pop();
             },
             icon: const Icon(Icons.arrow_back),
             color: AppThemeColors.kWhiteColor,

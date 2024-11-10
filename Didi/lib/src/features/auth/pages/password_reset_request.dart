@@ -5,6 +5,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
+import 'package:routemaster/routemaster.dart';
 
 class ResetPasswordRequest extends StatefulWidget {
   const ResetPasswordRequest({super.key});
@@ -20,11 +21,8 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
   void _onSubmitForm() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      Navigator.pushNamed(
-        context,
-        '/otpVerification',
-        arguments: {"email": _emailController.text.trim()},
-      );
+      Routemaster.of(context)
+          .push("/otpVerification/${_emailController.text.trim()}");
     } else {
       return;
     }
@@ -36,7 +34,7 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Routemaster.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),
           color: AppThemeColors.kWhiteColor,

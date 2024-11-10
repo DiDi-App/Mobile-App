@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/widgets/custom_button.dart';
+import 'package:routemaster/routemaster.dart';
 
 class OnboardingScreen4 extends StatelessWidget {
   const OnboardingScreen4({super.key});
@@ -24,7 +25,7 @@ class OnboardingScreen4 extends StatelessWidget {
             CustomButton(
               text: "Login",
               onPressed: () {
-                Navigator.pushReplacementNamed(context, "/signIn");
+                Routemaster.of(context).replace("/signIn");
               },
               width: 75.w,
             ),
@@ -35,7 +36,7 @@ class OnboardingScreen4 extends StatelessWidget {
               borderColor: Colors.white,
               width: 75.w,
               onPressed: () {
-                Navigator.pushReplacementNamed(context, "/signUp");
+                Routemaster.of(context).replace("/signUp");
               },
             ),
           ],

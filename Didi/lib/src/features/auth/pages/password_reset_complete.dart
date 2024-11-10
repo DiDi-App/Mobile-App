@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/widgets/custom_button.dart';
+import 'package:routemaster/routemaster.dart';
 
 class PasswordResetComplete extends StatefulWidget {
   const PasswordResetComplete({super.key});
@@ -60,7 +61,8 @@ class _PasswordResetCompleteState extends State<PasswordResetComplete> {
                 width: 100.w,
                 text: "Back to login",
                 onPressed: () {
-                  Navigator.popUntil(context, ModalRoute.withName('/signIn'));
+                  Routemaster.of(context)
+                      .popUntil((route) => route.path == '/signIn');
                 },
               ),
             ],

@@ -6,6 +6,7 @@ import 'package:didi/src/features/home/widgets/vendor_info_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:routemaster/routemaster.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class VendorScreen extends StatelessWidget {
@@ -34,7 +35,7 @@ class VendorScreen extends StatelessWidget {
                   top: 5.h,
                   child: RoundedButtons(
                     child: SvgPicture.asset("assets/svg/arrow_left.svg"),
-                    onTap: () => Navigator.of(context).pop(),
+                    onTap: () => Routemaster.of(context).pop(),
                   ),
                 ),
                 Positioned(

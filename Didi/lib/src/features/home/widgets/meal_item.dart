@@ -1,6 +1,7 @@
 import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:routemaster/routemaster.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
@@ -9,7 +10,7 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).pushNamed("/vendorPage"),
+      onTap: () => Routemaster.of(context).push("/vendorPage"),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -5,9 +5,11 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:didi/src/features/auth/widgets/pin_fields.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
+import 'package:routemaster/routemaster.dart';
 
 class OtpScreen extends StatefulWidget {
-  const OtpScreen({super.key});
+  const OtpScreen({super.key, required this.email});
+  final String email;
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();
@@ -24,21 +26,17 @@ class _OtpScreenState extends State<OtpScreen> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       debugPrint("$_input1$_input2$_input3$_input4");
-      Navigator.pushNamed(context, '/passwordChange');
+      Routemaster.of(context).push('/passwordChange');
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final args =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
-    String? email = args?['email'];
-
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Routemaster.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),
           color: AppThemeColors.kWhiteColor,
@@ -73,7 +71,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
               ),
               Text(
-                "$email",
+                widget.email,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,

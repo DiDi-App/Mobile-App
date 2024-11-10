@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:didi/src/features/auth/widgets/auth_input_field.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
+import 'package:routemaster/routemaster.dart';
 import '../widgets/signup_icons.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -23,7 +24,6 @@ class _SignInScreenState extends State<SignInScreen> {
     if (_formKey.currentState!.validate()) {
       debugPrint(_emailController.text.trim());
       debugPrint(_password1Controller.text.trim());
-      Navigator.of(context).pushNamed("/homePage");
     } else {
       return;
     }
@@ -119,8 +119,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(
-                                context, '/resetPasswordRequest');
+                            Routemaster.of(context)
+                                .push("/resetPasswordRequest");
                           },
                           child: Text(
                             "Forgot password?",
@@ -210,7 +210,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            Navigator.pushReplacementNamed(context, "/signUp");
+                            Routemaster.of(context).replace("/signUp");
                           },
                       ),
                     ],

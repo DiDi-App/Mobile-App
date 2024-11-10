@@ -1,16 +1,9 @@
-import 'package:didi/src/features/home/screen/tab_bar_view.dart';
-import 'package:didi/src/features/home/screen/vendor_screen.dart';
+import 'package:didi/src/core/routes/routes_imports.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/theme/theme_config.dart';
-import 'package:didi/src/features/onboarding/pages/onboarding_screen.dart';
-import 'package:didi/src/features/auth/pages/signup_screen.dart';
-import 'package:didi/src/features/auth/pages/signin_screen.dart';
-import 'package:didi/src/features/auth/pages/password_reset_request.dart';
-import 'package:didi/src/features/auth/pages/otp_screen.dart';
-import 'package:didi/src/features/auth/pages/password_change_screen.dart';
-import 'package:didi/src/features/auth/pages/password_reset_complete.dart';
+import 'package:routemaster/routemaster.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,20 +17,11 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(
       builder: (context, orientation, screenType) {
-        return MaterialApp(
-          initialRoute: '/',
-          routes: {
-            '/': (context) => const OnboardingScreen(),
-            '/signUp': (context) => const SignUpScreen(),
-            '/signIn': (context) => const SignInScreen(),
-            '/resetPasswordRequest': (context) => const ResetPasswordRequest(),
-            '/otpVerification': (context) => const OtpScreen(),
-            '/passwordChange': (context) => const PasswordChangeScreen(),
-            '/passwordResetComplete': (context) =>
-                const PasswordResetComplete(),
-            '/homePage': (context) => const TabBarPage(),
-            '/vendorPage': (context) => const VendorScreen(),
-          },
+        return MaterialApp.router(
+          routerDelegate: RoutemasterDelegate(
+            routesBuilder: (context) => loggedOutRoutes,
+          ),
+          routeInformationParser: const RoutemasterParser(),
           debugShowCheckedModeBanner: false,
           darkTheme: ThemeConfig().darkTheme,
           theme: ThemeConfig().lightTheme,
