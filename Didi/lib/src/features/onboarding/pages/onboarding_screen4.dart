@@ -25,7 +25,7 @@ class OnboardingScreen4 extends StatelessWidget {
             CustomButton(
               text: "Login",
               onPressed: () {
-                Routemaster.of(context).replace("/signIn");
+                Routemaster.of(context).replace("signIn");
               },
               width: 75.w,
             ),
@@ -36,7 +36,7 @@ class OnboardingScreen4 extends StatelessWidget {
               borderColor: Colors.white,
               width: 75.w,
               onPressed: () {
-                Routemaster.of(context).replace("/signUp");
+                Routemaster.of(context).replace("signUp");
               },
             ),
           ],

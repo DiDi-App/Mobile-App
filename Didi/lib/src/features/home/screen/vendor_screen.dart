@@ -24,7 +24,7 @@ class VendorScreen extends StatelessWidget {
                 FadeInImage(
                   placeholder: MemoryImage(kTransparentImage),
                   image: const NetworkImage(
-                    "https://s3-alpha-sig.figma.com/img/09e0/0b8d/8839ae83655bea151d87fd6746130b0c?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fZKE0RqQwSQ05HZLhXQqU9IkgK3CLUUfSfx55SxA~8aZEkAUTuaj~xlcEEpdvqTLVNSU~ogndnrS0q7URVpFvsYWZvDtIs8HKgYuZC84MyWR7wvKawP7eY7fkeF-RXj6e8SYfDZ2sgXapypUGkDSi7Jsx9RRnECc2MwVj5w4m2heQW3y7jTmtR5vbDs73-rfY4m1VNo6nPQBd-mo5Y64iWdL-7u3s8qt6LwVf6SIXo6bHm8ndHR8toSVe2GEuH3~9Q866u7JLaAjjN3hFSO52k6YYmIDrEwWgSd0pBA~fsn6CD7U6WIvnMQOMwurs5JlLBvCZTRB9atV0iRBEamPXA__",
+                    "https://s3-alpha-sig.figma.com/img/09e0/0b8d/8839ae83655bea151d87fd6746130b0c?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fxWoEfnpGLZl4A~m6Q7G0B4712dF3fi8DwJtBPuwNL1aDYEijAn1zVKMr3DK6TMkR~ZI9JP02zw9Xx5iTcQtDB1x87~D3hqPIVg27d9QmBrugdHA5QmOH6uc6N0hZwmWqnwgsDHryf1dL4Ht4x61c5r7RYGH7rEOoYHYYtuyVKAT~kW5HL3LrGi95JgUXpGkSPD6WuCSUwsScU0ZOC43Ob~ivZsyxnhey17~iBEWduRl1SjdL3iWhtKl6BkYfg2O6u7EDU2zYg39pankH4jUnPpLGgwV8GRBc6XkoKKAEtA0~3w5g4reWlfjeu27Yznyhz3MtjHK2GQjBkIKbde9zw__",
                   ),
                   height: 25.h,
                   width: double.infinity,

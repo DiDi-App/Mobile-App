@@ -1,6 +1,9 @@
 import 'package:didi/src/core/constants.dart';
-import 'package:didi/src/features/auth/widgets/auth_input_field.dart';
+import 'package:didi/src/core/utils/snackbar.dart';
+import 'package:didi/src/features/auth/presentation/bloc/auth_bloc_bloc.dart';
+import 'package:didi/src/features/auth/presentation/widgets/auth_input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/theme/theme_colors.dart';
@@ -8,7 +11,14 @@ import 'package:didi/src/core/widgets/custom_button.dart';
 import 'package:routemaster/routemaster.dart';
 
 class PasswordChangeScreen extends StatefulWidget {
-  const PasswordChangeScreen({super.key});
+  const PasswordChangeScreen({
+    super.key,
+    required this.email,
+    required this.resetCode,
+  });
+
+  final String email;
+  final String resetCode;
 
   @override
   State<PasswordChangeScreen> createState() => _PasswordChangeScreenState();
@@ -19,9 +29,13 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
   final _password1Controller = TextEditingController();
   final _password2Controller = TextEditingController();
 
-  void _onSubmitForm() {
+  void _onSubmitForm(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      Routemaster.of(context).push('/passwordResetComplete');
+      context.read<AuthBloc>().add(ChangePasswordEvent(
+            email: widget.email,
+            resetCode: widget.resetCode,
+            password: _password1Controller.text.trim(),
+          ));
     } else {
       return;
     }
@@ -121,10 +135,31 @@ class _PasswordChangeScreenState extends State<PasswordChangeScreen> {
                         },
                       ),
                       SizedBox(height: 2.3.h),
-                      CustomButton(
-                        text: "Reset password",
-                        width: 90.w,
-                        onPressed: _onSubmitForm,
+                      BlocConsumer<AuthBloc, AuthState>(
+                        listener: (context, state) {
+                          if (state is AuthFailure) {
+                            showSnackBar(context, state.message);
+                          }
+
+                          if (state is AuthSuccess) {
+                            Routemaster.of(context)
+                                .push("/signIn/passwordResetComplete");
+                          }
+                        },
+                        builder: (context, state) {
+                          if (state is AuthLoading) {
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: AppThemeColors.kPrimaryButtonColor,
+                              ),
+                            );
+                          }
+                          return CustomButton(
+                            text: "Reset password",
+                            width: 90.w,
+                            onPressed: () => _onSubmitForm(context),
+                          );
+                        },
                       ),
                     ],
                   ),

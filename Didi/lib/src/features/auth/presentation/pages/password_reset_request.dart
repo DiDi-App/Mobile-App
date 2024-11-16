@@ -1,6 +1,9 @@
 import 'package:didi/src/core/constants.dart';
-import 'package:didi/src/features/auth/widgets/auth_input_field.dart';
+import 'package:didi/src/core/utils/snackbar.dart';
+import 'package:didi/src/features/auth/presentation/bloc/auth_bloc_bloc.dart';
+import 'package:didi/src/features/auth/presentation/widgets/auth_input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/theme/theme_colors.dart';
@@ -18,11 +21,12 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
 
-  void _onSubmitForm() {
+  void _onSubmitForm(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      Routemaster.of(context)
-          .push("/otpVerification/${_emailController.text.trim()}");
+      context.read<AuthBloc>().add(ForgotPasswordEvent(
+            email: _emailController.text.trim(),
+          ));
     } else {
       return;
     }
@@ -91,10 +95,31 @@ class _ResetPasswordRequestState extends State<ResetPasswordRequest> {
                     },
                   ),
                   SizedBox(height: 2.3.h),
-                  CustomButton(
-                    text: "Continue",
-                    width: 90.w,
-                    onPressed: _onSubmitForm,
+                  BlocConsumer<AuthBloc, AuthState>(
+                    listener: (context, state) {
+                      if (state is AuthFailure) {
+                        showSnackBar(context, state.message);
+                      }
+
+                      if (state is AuthSuccessVoid) {
+                        Routemaster.of(context).push(
+                            "/signIn/resetPasswordRequest/otpVerification/${_emailController.text.trim()}");
+                      }
+                    },
+                    builder: (context, state) {
+                      if (state is AuthLoading) {
+                        return const Center(
+                          child: CircularProgressIndicator(
+                            color: AppThemeColors.kPrimaryButtonColor,
+                          ),
+                        );
+                      }
+                      return CustomButton(
+                        text: "Continue",
+                        width: 90.w,
+                        onPressed: () => _onSubmitForm(context),
+                      );
+                    },
                   ),
                 ],
               ),

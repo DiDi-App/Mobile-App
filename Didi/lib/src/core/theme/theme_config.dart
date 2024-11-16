@@ -7,6 +7,7 @@ class ThemeConfig {
 
   ThemeData get darkTheme {
     return ThemeData.dark().copyWith(
+      brightness: Brightness.dark,
       primaryColor: AppThemeColors.kPrimaryButtonColor,
       scaffoldBackgroundColor: AppThemeColors.kPrimaryBackgroundColor,
       appBarTheme: const AppBarTheme(

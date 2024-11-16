@@ -1,9 +1,13 @@
 import 'package:didi/src/core/constants.dart';
+import 'package:didi/src/core/utils/snackbar.dart';
+import 'package:didi/src/features/auth/presentation/bloc/auth_bloc_bloc.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:didi/src/core/theme/theme_colors.dart';
-import 'package:didi/src/features/auth/widgets/pin_fields.dart';
+import 'package:didi/src/features/auth/presentation/widgets/pin_fields.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -22,12 +26,21 @@ class _OtpScreenState extends State<OtpScreen> {
   String _input3 = "";
   String _input4 = "";
 
-  void _onSubmitForm() {
+  void _onSubmitForm(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      debugPrint("$_input1$_input2$_input3$_input4");
-      Routemaster.of(context).push('/passwordChange');
+      final resetCode = "$_input1$_input2$_input3$_input4";
+      context.read<AuthBloc>().add(VerifyCodeEvent(
+            email: widget.email,
+            resetCode: resetCode,
+          ));
     }
+  }
+
+  void resendOTP(BuildContext context) {
+    context.read<AuthBloc>().add(ForgotPasswordEvent(
+          email: widget.email,
+        ));
   }
 
   @override
@@ -146,15 +159,41 @@ class _OtpScreenState extends State<OtpScreen> {
                         color: AppThemeColors.kPrimaryButtonColor,
                         fontSize: 14.5.sp,
                       ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          resendOTP(context);
+                        },
                     ),
                   ],
                 ),
               ),
               SizedBox(height: 2.5.h),
-              CustomButton(
-                text: "Continue",
-                width: 86.w,
-                onPressed: _onSubmitForm,
+              BlocConsumer<AuthBloc, AuthState>(
+                listener: (context, state) {
+                  if (state is AuthFailure) {
+                    showSnackBar(context, state.message);
+                  }
+
+                  if (state is AuthSuccess) {
+                    final resetCode = "$_input1$_input2$_input3$_input4";
+                    Routemaster.of(context).push(
+                        '/signIn/resetPasswordRequest/passwordChange/${widget.email}/$resetCode');
+                  }
+                },
+                builder: (context, state) {
+                  if (state is AuthLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        color: AppThemeColors.kPrimaryButtonColor,
+                      ),
+                    );
+                  }
+                  return CustomButton(
+                    text: "Continue",
+                    width: 86.w,
+                    onPressed: () => _onSubmitForm(context),
+                  );
+                },
               )
             ],
           ),

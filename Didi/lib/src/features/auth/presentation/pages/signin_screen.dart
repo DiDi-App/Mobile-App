@@ -1,8 +1,12 @@
 import 'package:didi/src/core/constants.dart';
+import 'package:didi/src/core/theme/theme_colors.dart';
+import 'package:didi/src/core/utils/snackbar.dart';
+import 'package:didi/src/features/auth/presentation/bloc/auth_bloc_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
-import 'package:didi/src/features/auth/widgets/auth_input_field.dart';
+import 'package:didi/src/features/auth/presentation/widgets/auth_input_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
 import 'package:routemaster/routemaster.dart';
@@ -20,10 +24,12 @@ class _SignInScreenState extends State<SignInScreen> {
   final _emailController = TextEditingController();
   final _password1Controller = TextEditingController();
 
-  void _onSubmitForm() {
+  void _onSubmitForm(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      debugPrint(_emailController.text.trim());
-      debugPrint(_password1Controller.text.trim());
+      context.read<AuthBloc>().add(LoginWithEmailPasswordEvent(
+            email: _emailController.text.trim(),
+            password: _password1Controller.text.trim(),
+          ));
     } else {
       return;
     }
@@ -120,24 +126,41 @@ class _SignInScreenState extends State<SignInScreen> {
                         GestureDetector(
                           onTap: () {
                             Routemaster.of(context)
-                                .push("/resetPasswordRequest");
+                                .push("/signIn/resetPasswordRequest");
                           },
                           child: Text(
                             "Forgot password?",
                             style: TextStyle(
-                                color: Colors.blue,
-                                fontFamily: "Poppins",
-                                fontSize: 14.5.sp,
-                                fontWeight: FontWeight.w500),
+                              color: Colors.blue,
+                              fontFamily: "Poppins",
+                              fontSize: 14.5.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         )
                       ],
                     ),
                     SizedBox(height: 4.h),
-                    CustomButton(
-                      text: "Login",
-                      width: 90.w,
-                      onPressed: _onSubmitForm,
+                    BlocConsumer<AuthBloc, AuthState>(
+                      listener: (context, state) {
+                        if (state is AuthFailure) {
+                          showSnackBar(context, state.message);
+                        }
+                      },
+                      builder: (context, state) {
+                        if (state is AuthLoading) {
+                          return const Center(
+                            child: CircularProgressIndicator(
+                              color: AppThemeColors.kPrimaryButtonColor,
+                            ),
+                          );
+                        }
+                        return CustomButton(
+                          text: "Login",
+                          width: 90.w,
+                          onPressed: () => _onSubmitForm(context),
+                        );
+                      },
                     ),
                   ],
                 ),

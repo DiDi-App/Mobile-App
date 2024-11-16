@@ -13,4 +13,6 @@ class Constants {
     "Pent and TF",
     "city mall"
   ];
+
+  static const authEndpoint = "https://didi-server.onrender.com/api/auth";
 }
