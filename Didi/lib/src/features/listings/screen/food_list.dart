@@ -1,13 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:didi/src/core/constants.dart';
 import 'package:didi/src/core/theme/theme_colors.dart';
-import 'package:didi/src/features/home/widgets/menu_item.dart';
-import 'package:didi/src/features/home/widgets/rounded_buttons.dart';
-import 'package:didi/src/features/home/widgets/vendor_info_container.dart';
+import 'package:didi/src/features/listings/widgets/menu_item.dart';
+import 'package:didi/src/features/listings/widgets/rounded_buttons.dart';
+import 'package:didi/src/features/listings/widgets/vendor_info_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:routemaster/routemaster.dart';
-import 'package:transparent_image/transparent_image.dart';
 
 class VendorScreen extends StatelessWidget {
   const VendorScreen({super.key});
@@ -21,14 +21,12 @@ class VendorScreen extends StatelessWidget {
             height: 38.h,
             child: Stack(
               children: [
-                FadeInImage(
-                  placeholder: MemoryImage(kTransparentImage),
-                  image: const NetworkImage(
-                    "https://s3-alpha-sig.figma.com/img/09e0/0b8d/8839ae83655bea151d87fd6746130b0c?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fxWoEfnpGLZl4A~m6Q7G0B4712dF3fi8DwJtBPuwNL1aDYEijAn1zVKMr3DK6TMkR~ZI9JP02zw9Xx5iTcQtDB1x87~D3hqPIVg27d9QmBrugdHA5QmOH6uc6N0hZwmWqnwgsDHryf1dL4Ht4x61c5r7RYGH7rEOoYHYYtuyVKAT~kW5HL3LrGi95JgUXpGkSPD6WuCSUwsScU0ZOC43Ob~ivZsyxnhey17~iBEWduRl1SjdL3iWhtKl6BkYfg2O6u7EDU2zYg39pankH4jUnPpLGgwV8GRBc6XkoKKAEtA0~3w5g4reWlfjeu27Yznyhz3MtjHK2GQjBkIKbde9zw__",
-                  ),
+                CachedNetworkImage(
+                  fit: BoxFit.cover,
                   height: 25.h,
                   width: double.infinity,
-                  fit: BoxFit.cover,
+                  imageUrl:
+                      "https://s3-alpha-sig.figma.com/img/09e0/0b8d/8839ae83655bea151d87fd6746130b0c?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fxWoEfnpGLZl4A~m6Q7G0B4712dF3fi8DwJtBPuwNL1aDYEijAn1zVKMr3DK6TMkR~ZI9JP02zw9Xx5iTcQtDB1x87~D3hqPIVg27d9QmBrugdHA5QmOH6uc6N0hZwmWqnwgsDHryf1dL4Ht4x61c5r7RYGH7rEOoYHYYtuyVKAT~kW5HL3LrGi95JgUXpGkSPD6WuCSUwsScU0ZOC43Ob~ivZsyxnhey17~iBEWduRl1SjdL3iWhtKl6BkYfg2O6u7EDU2zYg39pankH4jUnPpLGgwV8GRBc6XkoKKAEtA0~3w5g4reWlfjeu27Yznyhz3MtjHK2GQjBkIKbde9zw__",
                 ),
                 Positioned(
                   left: 7.w,
@@ -81,24 +79,13 @@ class VendorScreen extends StatelessWidget {
                         height: 1.2,
                       ),
                     ),
-                    SizedBox(height: 3.h),
+                    SizedBox(height: 1.h),
                     Expanded(
                       child: ListView.builder(
                         shrinkWrap: true,
                         padding: EdgeInsets.zero,
                         itemCount: 6,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              const MenuItem(),
-                              Divider(
-                                height: 5.h,
-                                thickness: 1,
-                                color: AppThemeColors.kDividerColor,
-                              ),
-                            ],
-                          );
-                        },
+                        itemBuilder: (context, index) => const MenuItem(),
                       ),
                     ),
                   ],

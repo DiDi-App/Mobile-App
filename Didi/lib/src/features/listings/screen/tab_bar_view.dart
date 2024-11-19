@@ -1,6 +1,7 @@
 import 'package:didi/src/core/theme/theme_colors.dart';
-import 'package:didi/src/features/home/screen/homepage.dart';
-import 'package:didi/src/features/home/screen/orders_screen.dart';
+import 'package:didi/src/features/listings/screen/homepage.dart';
+import 'package:didi/src/features/listings/screen/orders_screen.dart';
+import 'package:didi/src/features/orders/presentation/screens/basket.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -14,33 +15,24 @@ class TabBarPage extends StatefulWidget {
 
 class _TabBarPageState extends State<TabBarPage> {
   int _selectedIndex = 0;
-  final PageController _pageController = PageController();
+  final List<Widget> pages = [
+    Homepage(),
+    const OrdersScreen(),
+    const BasketScreen(),
+    const OrdersScreen(),
+    Homepage(),
+  ];
 
   void _onTap(index) {
     setState(() {
       _selectedIndex = index;
-      _pageController.jumpToPage(index);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        children: [
-          Homepage(),
-          const OrdersScreen(),
-          Homepage(),
-          const OrdersScreen(),
-          Homepage(),
-        ],
-      ),
+      body: pages[_selectedIndex],
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           splashColor: Colors.transparent,
