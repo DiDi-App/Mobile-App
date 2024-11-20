@@ -5,7 +5,7 @@ import 'package:didi/src/features/auth/presentation/bloc/auth_bloc_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
-import 'package:didi/src/features/auth/presentation/widgets/auth_input_field.dart';
+import 'package:didi/src/core/widgets/auth_input_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';

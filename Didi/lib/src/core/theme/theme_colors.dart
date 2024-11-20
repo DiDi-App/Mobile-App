@@ -13,4 +13,5 @@ class AppThemeColors {
   static const kLightTextColor = Color.fromRGBO(188, 188, 188, 1);
   static const kStartingPriceColor = Color.fromRGBO(136, 136, 136, 1);
   static const kBasketTabBorderColor = Color.fromRGBO(160, 160, 160, 1);
+  static const kBasketTextColor = Color.fromRGBO(208, 208, 208, 1);
 }
