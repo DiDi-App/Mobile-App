@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../widgets/page_indicator.dart';
 import '../../../core/theme/theme_colors.dart';
 
 class OnboardingScreen1 extends StatelessWidget {
@@ -46,28 +45,6 @@ class OnboardingScreen1 extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: 10.h,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                PageIndicator(
-                  width: 13.w,
-                  color: AppThemeColors.kPageIndicatorColor,
-                ),
-                SizedBox(width: 2.w),
-                PageIndicator(
-                  width: 5.w,
-                  color: AppThemeColors.kPageIndicatorColor,
-                ),
-                SizedBox(width: 2.w),
-                PageIndicator(
-                  width: 5.w,
-                  color: AppThemeColors.kPageIndicatorColor,
-                ),
-              ],
-            ),
-          )
         ],
       ),
     );

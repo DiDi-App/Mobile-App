@@ -1,3 +1,4 @@
+import 'package:didi/src/core/common/widgets/loader.dart';
 import 'package:didi/src/core/constants.dart';
 import 'package:didi/src/core/utils/snackbar.dart';
 import 'package:didi/src/features/auth/presentation/bloc/auth_bloc_bloc.dart';
@@ -182,11 +183,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 },
                 builder: (context, state) {
                   if (state is AuthLoading) {
-                    return const Center(
-                      child: CircularProgressIndicator(
-                        color: AppThemeColors.kPrimaryButtonColor,
-                      ),
-                    );
+                    return const Loader();
                   }
                   return CustomButton(
                     text: "Continue",
