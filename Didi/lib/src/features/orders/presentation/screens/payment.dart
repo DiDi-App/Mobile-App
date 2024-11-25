@@ -40,22 +40,21 @@ class _PaymentScreenState extends State<PaymentScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      bottom: false,
-      child: SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Basket",
+          style: TextStyle(
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w600,
+            fontFamily: "Poppins",
+          ),
+        ),
+      ),
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppBar(
-              title: Text(
-                "Basket",
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: "Poppins",
-                ),
-              ),
-            ),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: Constants.horizontalPadding,

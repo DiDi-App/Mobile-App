@@ -1,6 +1,6 @@
 import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:didi/src/features/listings/screen/homepage.dart';
-import 'package:didi/src/features/listings/screen/orders_screen.dart';
+import 'package:didi/src/features/orders/presentation/screens/my_orders.dart';
 import 'package:didi/src/features/orders/presentation/screens/payment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,9 +17,9 @@ class _TabBarPageState extends State<TabBarPage> {
   int _selectedIndex = 0;
   final List<Widget> pages = [
     Homepage(),
-    const OrdersScreen(),
+    const MyOrders(),
     const PaymentScreen(),
-    const OrdersScreen(),
+    const MyOrders(),
     Homepage(),
   ];
 
