@@ -16,4 +16,5 @@ class AppThemeColors {
   static const kBasketTextColor = Color.fromRGBO(208, 208, 208, 1);
   static const kDeliveredColor = Color.fromRGBO(73, 255, 70, 1);
   static const kPendingColor = Color.fromRGBO(255, 233, 34, 1);
+  static const kSearchFieldColor = Color.fromRGBO(55, 55, 74, 1);
 }

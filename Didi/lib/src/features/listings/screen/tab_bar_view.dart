@@ -1,5 +1,6 @@
 import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:didi/src/features/listings/screen/homepage.dart';
+import 'package:didi/src/features/listings/screen/search_page.dart';
 import 'package:didi/src/features/orders/presentation/screens/my_orders.dart';
 import 'package:didi/src/features/orders/presentation/screens/payment.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +16,13 @@ class TabBarPage extends StatefulWidget {
 
 class _TabBarPageState extends State<TabBarPage> {
   int _selectedIndex = 0;
-  final List<Widget> pages = [
-    Homepage(),
-    const MyOrders(),
-    const PaymentScreen(),
-    const MyOrders(),
-    Homepage(),
-  ];
+  late List<Widget> _pages;
+
+  void _onTextFieldTap() {
+    setState(() {
+      _selectedIndex = 1;
+    });
+  }
 
   void _onTap(index) {
     setState(() {
@@ -30,9 +31,24 @@ class _TabBarPageState extends State<TabBarPage> {
   }
 
   @override
+  void initState() {
+    _pages = [
+      Homepage(onTextFieldTap: _onTextFieldTap),
+      const SearchPage(),
+      const PaymentScreen(),
+      const MyOrders(),
+      Homepage(onTextFieldTap: _onTextFieldTap),
+    ];
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_selectedIndex],
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           splashColor: Colors.transparent,

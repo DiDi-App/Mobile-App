@@ -9,7 +9,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Homepage extends StatelessWidget {
-  Homepage({super.key});
+  Homepage({super.key, required this.onTextFieldTap});
+
+  final VoidCallback onTextFieldTap;
 
   final List<String> selectedCategories = [];
   @override
@@ -86,7 +88,10 @@ class Homepage extends StatelessWidget {
             SizedBox(height: 2.5.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.7.w),
-              child: const HomeTextField(),
+              child: HomeTextField(
+                reaOnly: true,
+                onTap: onTextFieldTap,
+              ),
             ),
             SizedBox(height: 2.3.h),
             Padding(
