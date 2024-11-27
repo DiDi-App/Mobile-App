@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:didi/src/core/constants.dart';
 import 'package:didi/src/core/theme/theme_colors.dart';
-import 'package:didi/src/features/listings/widgets/menu_item.dart';
-import 'package:didi/src/features/listings/widgets/rounded_buttons.dart';
-import 'package:didi/src/features/listings/widgets/vendor_info_container.dart';
+import 'package:didi/src/features/listings/presentation/widgets/menu_item.dart';
+import 'package:didi/src/features/listings/presentation/widgets/rounded_buttons.dart';
+import 'package:didi/src/features/listings/presentation/widgets/vendor_info_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';

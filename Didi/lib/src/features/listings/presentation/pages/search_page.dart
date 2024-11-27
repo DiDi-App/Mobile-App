@@ -1,7 +1,7 @@
 import 'package:didi/src/core/constants.dart';
 import 'package:didi/src/core/theme/theme_colors.dart';
-import 'package:didi/src/features/listings/widgets/custom_search_app_bar.dart';
-import 'package:didi/src/features/listings/widgets/recent_searches.dart';
+import 'package:didi/src/features/listings/presentation/widgets/custom_search_app_bar.dart';
+import 'package:didi/src/features/listings/presentation/widgets/recent_searches.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 

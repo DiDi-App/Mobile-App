@@ -1,9 +1,9 @@
 import 'package:didi/src/core/constants.dart';
 import 'package:didi/src/core/theme/theme_colors.dart';
-import 'package:didi/src/features/listings/widgets/announcement_card.dart';
-import 'package:didi/src/features/listings/widgets/custom_chip.dart';
-import 'package:didi/src/features/listings/widgets/home_text_field.dart';
-import 'package:didi/src/features/listings/widgets/meal_item.dart';
+import 'package:didi/src/features/listings/presentation/widgets/announcement_card.dart';
+import 'package:didi/src/features/listings/presentation/widgets/custom_chip.dart';
+import 'package:didi/src/features/listings/presentation/widgets/home_text_field.dart';
+import 'package:didi/src/features/listings/presentation/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';

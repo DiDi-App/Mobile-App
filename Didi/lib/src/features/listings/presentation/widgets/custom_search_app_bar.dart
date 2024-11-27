@@ -1,6 +1,6 @@
 import 'package:didi/src/core/constants.dart';
 import 'package:didi/src/core/theme/theme_colors.dart';
-import 'package:didi/src/features/listings/widgets/home_text_field.dart';
+import 'package:didi/src/features/listings/presentation/widgets/home_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 

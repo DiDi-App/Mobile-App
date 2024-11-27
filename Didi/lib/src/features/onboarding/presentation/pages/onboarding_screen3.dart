@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../../core/theme/theme_colors.dart';
+import '../../../../core/theme/theme_colors.dart';
 
-class OnboardingScreen2 extends StatelessWidget {
-  const OnboardingScreen2({super.key});
+class OnboardingScreen3 extends StatelessWidget {
+  const OnboardingScreen3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +16,16 @@ class OnboardingScreen2 extends StatelessWidget {
             child: Stack(
               children: [
                 Positioned(
-                  left: 6.w,
-                  bottom: 22.h,
+                  left: 13.w,
+                  bottom: 23.h,
                   child: Image.asset(
-                    "assets/images/qr_code.png",
-                    width: 88.w,
+                    "assets/images/delivery.png",
+                    width: 85.w,
                   ),
                 ),
                 Positioned(
                   left: 15.w,
-                  bottom: 26.h,
+                  bottom: 25.h,
                   child: Container(
                     width: 70.w,
                     height: 30,

@@ -1,11 +1,11 @@
 import 'package:didi/src/core/theme/theme_colors.dart';
-import 'package:didi/src/features/onboarding/widgets/page_indicator.dart';
+import 'package:didi/src/features/onboarding/presentation/widgets/page_indicator.dart';
 import 'package:flutter/material.dart';
 
-import 'package:didi/src/features/onboarding/pages/onboarding_screen1.dart';
-import 'package:didi/src/features/onboarding/pages/onboarding_screen2.dart';
-import 'package:didi/src/features/onboarding/pages/onboarding_screen3.dart';
-import 'package:didi/src/features/onboarding/pages/onboarding_screen4.dart';
+import 'package:didi/src/features/onboarding/presentation/pages/onboarding_screen1.dart';
+import 'package:didi/src/features/onboarding/presentation/pages/onboarding_screen2.dart';
+import 'package:didi/src/features/onboarding/presentation/pages/onboarding_screen3.dart';
+import 'package:didi/src/features/onboarding/presentation/pages/onboarding_screen4.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class OnboardingScreen extends StatefulWidget {
