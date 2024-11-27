@@ -3,6 +3,7 @@ import 'package:didi/src/features/listings/presentation/pages/homepage.dart';
 import 'package:didi/src/features/listings/presentation/pages/search_page.dart';
 import 'package:didi/src/features/orders/presentation/pages/my_orders.dart';
 import 'package:didi/src/features/orders/presentation/pages/payment.dart';
+import 'package:didi/src/features/settings/presentation/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -37,7 +38,7 @@ class _TabBarPageState extends State<TabBarPage> {
       const SearchPage(),
       const PaymentScreen(),
       const MyOrders(),
-      Homepage(onTextFieldTap: _onTextFieldTap),
+      const SettingsPage(),
     ];
     super.initState();
   }
@@ -66,7 +67,7 @@ class _TabBarPageState extends State<TabBarPage> {
                   colorFilter: ColorFilter.mode(
                     _selectedIndex == 0
                         ? AppThemeColors.kPrimaryButtonColor
-                        : AppThemeColors.kWhiteColor.withOpacity(0.8),
+                        : AppThemeColors.kWhiteColor,
                     BlendMode.srcIn,
                   ),
                 ),
@@ -82,7 +83,7 @@ class _TabBarPageState extends State<TabBarPage> {
                   colorFilter: ColorFilter.mode(
                     _selectedIndex == 1
                         ? AppThemeColors.kPrimaryButtonColor
-                        : AppThemeColors.kWhiteColor.withOpacity(0.8),
+                        : AppThemeColors.kWhiteColor,
                     BlendMode.srcIn,
                   ),
                 ),
@@ -98,7 +99,7 @@ class _TabBarPageState extends State<TabBarPage> {
                   colorFilter: ColorFilter.mode(
                     _selectedIndex == 2
                         ? AppThemeColors.kPrimaryButtonColor
-                        : AppThemeColors.kWhiteColor.withOpacity(0.8),
+                        : AppThemeColors.kWhiteColor,
                     BlendMode.srcIn,
                   ),
                 ),
@@ -114,12 +115,12 @@ class _TabBarPageState extends State<TabBarPage> {
                   colorFilter: ColorFilter.mode(
                     _selectedIndex == 3
                         ? AppThemeColors.kPrimaryButtonColor
-                        : AppThemeColors.kWhiteColor.withOpacity(0.8),
+                        : AppThemeColors.kWhiteColor,
                     BlendMode.srcIn,
                   ),
                 ),
               ),
-              label: "Menu",
+              label: "My Orders",
             ),
             BottomNavigationBarItem(
               icon: Padding(
@@ -130,7 +131,7 @@ class _TabBarPageState extends State<TabBarPage> {
                   colorFilter: ColorFilter.mode(
                     _selectedIndex == 4
                         ? AppThemeColors.kPrimaryButtonColor
-                        : AppThemeColors.kWhiteColor.withOpacity(0.8),
+                        : AppThemeColors.kWhiteColor,
                     BlendMode.srcIn,
                   ),
                 ),

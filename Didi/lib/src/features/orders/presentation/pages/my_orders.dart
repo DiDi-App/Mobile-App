@@ -20,7 +20,6 @@ class MyOrders extends StatelessWidget {
             fontFamily: "Poppins",
           ),
         ),
-        centerTitle: false,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: Constants.horizontalPadding),
