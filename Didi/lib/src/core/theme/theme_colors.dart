@@ -17,4 +17,5 @@ class AppThemeColors {
   static const kDeliveredColor = Color.fromRGBO(73, 255, 70, 1);
   static const kPendingColor = Color.fromRGBO(255, 233, 34, 1);
   static const kSearchFieldColor = Color.fromRGBO(55, 55, 74, 1);
+  static const kDropDownColor = Color.fromRGBO(91, 91, 91, 1);
 }

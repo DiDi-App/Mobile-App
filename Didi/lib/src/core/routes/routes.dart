@@ -31,5 +31,6 @@ final loggedInRoutes = RouteMap(
     '/': (_) => const MaterialPage(child: TabBarPage()),
     '/foodList': (_) => const MaterialPage(child: VendorScreen()),
     '/foodList/foodDetail': (_) => const MaterialPage(child: FoodDetailPage()),
+    '/updatePhone': (_) => const MaterialPage(child: UpdatePhone()),
   },
 );

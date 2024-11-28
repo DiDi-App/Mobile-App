@@ -3,6 +3,7 @@ import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:routemaster/routemaster.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -47,7 +48,8 @@ class SettingsPage extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () =>
+                        Routemaster.of(context).push("/updatePhone"),
                     child: Row(
                       children: [
                         Text(
