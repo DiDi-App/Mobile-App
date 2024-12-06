@@ -9,6 +9,7 @@ class BasketItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 1.h),
       child: Row(
@@ -22,11 +23,11 @@ class BasketItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(7),
                   ),
                   clipBehavior: Clip.hardEdge,
-                  height: 9.h,
-                  width: 25.w,
+                  height: isTablet ? 10.h : 9.h,
+                  width: isTablet ? 21.w : 25.w,
                   child: CachedNetworkImage(
                     imageUrl:
-                        "https://s3-alpha-sig.figma.com/img/09e0/0b8d/8839ae83655bea151d87fd6746130b0c?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fxWoEfnpGLZl4A~m6Q7G0B4712dF3fi8DwJtBPuwNL1aDYEijAn1zVKMr3DK6TMkR~ZI9JP02zw9Xx5iTcQtDB1x87~D3hqPIVg27d9QmBrugdHA5QmOH6uc6N0hZwmWqnwgsDHryf1dL4Ht4x61c5r7RYGH7rEOoYHYYtuyVKAT~kW5HL3LrGi95JgUXpGkSPD6WuCSUwsScU0ZOC43Ob~ivZsyxnhey17~iBEWduRl1SjdL3iWhtKl6BkYfg2O6u7EDU2zYg39pankH4jUnPpLGgwV8GRBc6XkoKKAEtA0~3w5g4reWlfjeu27Yznyhz3MtjHK2GQjBkIKbde9zw__",
+                        "https://s3-alpha-sig.figma.com/img/09e0/0b8d/8839ae83655bea151d87fd6746130b0c?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p0lT9NTzeGHGzCZg2sB4MhTU8HeC8lkOf53-6JHVJP21OKTdpdFlHMqrcDsUQzQyORQwzmG4WpFxbXnWRaLju2nx-2Is8PMVB4lR8rIJhVA8qiz-t11sNkNsNmPP1G7nTCpJQRf-9I~QVHOeZGIRcLBnJ0nJssoIadSx6yZ9Nws-02ZMArJ9trHdiZmEPFIa0EVOKuZkw2BPWbT4BxCjA3PtO7tb95CN6GU~rETMH75ZLp2-yIzSissHX2AQ8RNDPVVvTiJwcfTeUBDvw9tvXhsfh9lHdd9eI6k13YLU5IQt0aYivIZXbDW9eWhr94qNQqm0~QfdrOxBOCvHsoyPkA__",
                     fit: BoxFit.cover,
                   ),
                 ),

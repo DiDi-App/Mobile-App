@@ -9,6 +9,7 @@ class MenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -67,12 +68,12 @@ class MenuItem extends StatelessWidget {
                       color: AppThemeColors.kPrimaryBackgroundColor,
                     ),
                     clipBehavior: Clip.hardEdge,
-                    height: 7.5.h,
-                    width: 125,
+                    height: isTablet ? 9.h : 7.5.h,
+                    width: isTablet ? 27.w : 29.w,
                     child: CachedNetworkImage(
                       fit: BoxFit.cover,
                       imageUrl:
-                          "https://s3-alpha-sig.figma.com/img/7c7c/531b/3da34e93e27d789f8c8aa942ef6a80a3?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ta1-C7xg62ZQDuvW8Fzh2ldiY9XszlOeTIMTgdUQGC9YeGkxw~9hQOmyJFQSrHRQ-RwIGIjUkirEiwqgQv~1w8fMveRX9yEdWzJ3rKYSHCKXJDrUHk3f6wYdf2qskj5nLGLFC6NMOTFu7DN1zWfaOG7ppdn~dPBtu1ES92Z9m~YGcnW~PDcZ-cDnwN9vNhFuQk8ChVGnoJsVsu0xhiKbbw9aMYGDhVPjqCjKKvuKnBRBLanxGzU3uD7piaVjodLoknohN6XNqnLSTcDcZcVCp7J4fnH6QopxrUCANTV89PxTwgGCC8iy7ZuQlQihHQCIerUZ0CZBVQY~O7HhylJe-Q__",
+                          "https://s3-alpha-sig.figma.com/img/17d4/b3b5/d9397a48cb11a15f9117c2a0975f9e69?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=eTHmDvGnG9lacXnUiVsrAOU7jdWX8bXBYEtyN2zKSHOPg1xcCjR1JOMiDIyMChRPhpfYF-kZKD7ZFNAttVsDKnaA6Cc0YN1SmH7fJydelVqzX5Ny5OPhj5yre6fv2MukKRHFpwZEc1KBY40-U9DZeTAOShowsH1F2GBVzf6d~S0-eHsex3XMbhVGeK3SLMwQbcBEGCBpgkwedrCYeDvoC2s1JnwH1JEVCoj2F4Z0Af2JpbLKy-IssOpOzNW5e8KntR28cBjOGajsqYrPyXeWVB~nroJfZowjB9sty6v2Wn2pDGsHmxo50pl8Gz0KOOwzILlXuEPSWsseescsUjVzhQ__",
                     ),
                   ),
                 ],

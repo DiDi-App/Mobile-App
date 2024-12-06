@@ -18,9 +18,9 @@ class AnnouncementCard extends StatelessWidget {
         children: [
           CachedNetworkImage(
             imageUrl:
-                "https://s3-alpha-sig.figma.com/img/7c7c/531b/3da34e93e27d789f8c8aa942ef6a80a3?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ta1-C7xg62ZQDuvW8Fzh2ldiY9XszlOeTIMTgdUQGC9YeGkxw~9hQOmyJFQSrHRQ-RwIGIjUkirEiwqgQv~1w8fMveRX9yEdWzJ3rKYSHCKXJDrUHk3f6wYdf2qskj5nLGLFC6NMOTFu7DN1zWfaOG7ppdn~dPBtu1ES92Z9m~YGcnW~PDcZ-cDnwN9vNhFuQk8ChVGnoJsVsu0xhiKbbw9aMYGDhVPjqCjKKvuKnBRBLanxGzU3uD7piaVjodLoknohN6XNqnLSTcDcZcVCp7J4fnH6QopxrUCANTV89PxTwgGCC8iy7ZuQlQihHQCIerUZ0CZBVQY~O7HhylJe-Q__",
+                "https://s3-alpha-sig.figma.com/img/7c7c/531b/3da34e93e27d789f8c8aa942ef6a80a3?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=grCRDiyS~CRoFzxlUM~CANwRddDx1qWVo~EULJEHTvC~i82mlbh~xQRnBNMxgl5JR4q3jf2iro5xTWQrkllLMg6SbmlWhM116kDE3LBTEwEFsPUbRXLolkj1KpKgsPcUs5eU-O1QLXekuyhGgq-BSmWEaU3JDYR5ZdHHGtdDRBx98Fxw-9m7oVcDhyB-OEXheQNJ46X-8D6o4ToezjVVJYmD2Bj2S1u3mwec6PQhY4EJx~UQaLL0LkjwlfyJh0Qg6EApdmRBYp9CHEl64~HlxQDb6zYbBpkgYXOwyjVC7oJGYwC7~hisFAAI-dyahdEiyAAxwgTFMVWV0NMkPsJyfQ__",
             fit: BoxFit.cover,
-            height: 14.h,
+            height: Device.screenType == ScreenType.tablet ? 16.h : 14.h,
             width: double.infinity,
           ),
           Positioned(

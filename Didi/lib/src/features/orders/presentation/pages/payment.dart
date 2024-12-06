@@ -40,6 +40,7 @@ class _PaymentScreenState extends State<PaymentScreen>
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -50,6 +51,7 @@ class _PaymentScreenState extends State<PaymentScreen>
             fontFamily: "Poppins",
           ),
         ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -76,6 +78,7 @@ class _PaymentScreenState extends State<PaymentScreen>
                     ),
                     height: 6.h,
                     child: TabBar(
+                      dividerHeight: 0,
                       labelPadding: EdgeInsets.zero,
                       labelColor: AppThemeColors.kPrimaryBackgroundColor,
                       unselectedLabelColor: AppThemeColors.kWhiteColor,
@@ -88,12 +91,13 @@ class _PaymentScreenState extends State<PaymentScreen>
                         Container(
                           decoration: const BoxDecoration(),
                           width: double.infinity,
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               "Delivery",
                               style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontWeight: FontWeight.w600,
+                                fontSize: 14.5.sp,
                               ),
                             ),
                           ),
@@ -101,12 +105,13 @@ class _PaymentScreenState extends State<PaymentScreen>
                         Container(
                           decoration: const BoxDecoration(),
                           width: double.infinity,
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               "Pickup",
                               style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontWeight: FontWeight.w600,
+                                fontSize: 14.5.sp,
                               ),
                             ),
                           ),
@@ -188,6 +193,8 @@ class _PaymentScreenState extends State<PaymentScreen>
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: SlideAction(
+                sliderButtonIconSize: isTablet ? 3.3.h : 2.6.h,
+                height: 7.5.h,
                 onSubmit: () async {},
                 elevation: 0,
                 outerColor: AppThemeColors.kPrimaryButtonColor,

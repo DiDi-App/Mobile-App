@@ -26,6 +26,8 @@ class _CustomButtomAppBarState extends State<CustomButtomAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
+
     return BottomAppBar(
       height: 7.5.h,
       color: AppThemeColors.kBottonNavigationBarColor,
@@ -70,7 +72,10 @@ class _CustomButtomAppBarState extends State<CustomButtomAppBar> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(7),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    padding: isTablet
+                        ? const EdgeInsets.symmetric(
+                            horizontal: 65, vertical: 10)
+                        : const EdgeInsets.symmetric(horizontal: 40),
                     backgroundColor: AppThemeColors.kPrimaryButtonColor,
                   ),
                   child: Text(

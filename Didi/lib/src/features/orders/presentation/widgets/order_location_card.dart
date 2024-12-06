@@ -9,6 +9,8 @@ class OrderLocationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
+
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -72,7 +74,7 @@ class OrderLocationCard extends StatelessWidget {
             SizedBox(height: 2.h),
             Container(
               width: double.infinity,
-              height: 20.h,
+              height: isTablet ? 27.h : 20.h,
               decoration: BoxDecoration(
                 color: AppThemeColors.kPrimaryBackgroundColor,
                 borderRadius: BorderRadius.circular(10),

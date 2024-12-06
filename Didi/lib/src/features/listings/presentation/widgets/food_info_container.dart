@@ -9,7 +9,7 @@ class FoodInfoContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(3.w),
         color: AppThemeColors.kContainerColor,
       ),
       child: Padding(

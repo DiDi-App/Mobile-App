@@ -170,6 +170,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
       if (response.statusCode != 201) {
         final resMap = jsonDecode(response.body) as Map<String, dynamic>;
+
         throw AuthException(
           message: resMap["error"] ??
               resMap["message"] ??

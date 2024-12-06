@@ -17,8 +17,9 @@ class HomeTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
     return TextField(
-      readOnly: true,
+      readOnly: reaOnly,
       onTap: onTap,
       style: TextStyle(
         fontFamily: "Poppins",
@@ -37,8 +38,9 @@ class HomeTextField extends StatelessWidget {
         ),
         filled: true,
         fillColor: fillColor ?? AppThemeColors.kTextFieldColor,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 14, vertical: 15),
+        contentPadding: isTablet
+            ? const EdgeInsets.symmetric(horizontal: 20, vertical: 20)
+            : const EdgeInsets.symmetric(horizontal: 14, vertical: 15),
         border: const OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.all(Radius.circular(7)),

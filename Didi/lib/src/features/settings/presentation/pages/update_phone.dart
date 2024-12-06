@@ -1,7 +1,9 @@
+import 'package:didi/src/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:didi/src/core/constants.dart';
 import 'package:didi/src/core/widgets/custom_button.dart';
 import 'package:didi/src/features/settings/presentation/widgets/phone_input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -17,7 +19,7 @@ class UpdatePhone extends StatefulWidget {
 
 class _UpdatePhoneState extends State<UpdatePhone> {
   final _formKey = GlobalKey<FormState>();
-  final _phoneController = TextEditingController(text: "246027827");
+  late TextEditingController _phoneController;
   String prefix = "+233";
 
   void _onSubmitForm(BuildContext context) {
@@ -29,6 +31,10 @@ class _UpdatePhoneState extends State<UpdatePhone> {
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
+    final user = (context.read<AppUserCubit>().state as AppUserLoggedIn).user;
+    _phoneController = TextEditingController(text: user.phone);
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -75,7 +81,10 @@ class _UpdatePhoneState extends State<UpdatePhone> {
                     Expanded(
                       flex: 3,
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 2.w,
+                          vertical: isTablet ? 1.h : 0,
+                        ),
                         decoration: BoxDecoration(
                           color: AppThemeColors.kDropDownColor,
                           borderRadius: BorderRadius.circular(10),
@@ -83,9 +92,10 @@ class _UpdatePhoneState extends State<UpdatePhone> {
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton(
                             dropdownColor: AppThemeColors.kDropDownColor,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: AppThemeColors.kWhiteColor,
                               fontFamily: "Poppins",
+                              fontSize: 14.5.sp,
                             ),
                             padding: EdgeInsets.zero,
                             isExpanded: true,

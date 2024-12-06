@@ -20,10 +20,10 @@ class MealItem extends StatelessWidget {
                 color: AppThemeColors.kTextFieldColor),
             clipBehavior: Clip.hardEdge,
             width: double.infinity,
-            height: 12.h,
+            height: Device.screenType == ScreenType.tablet ? 15.h : 12.h,
             child: CachedNetworkImage(
               imageUrl:
-                  "https://s3-alpha-sig.figma.com/img/7c7c/531b/3da34e93e27d789f8c8aa942ef6a80a3?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ta1-C7xg62ZQDuvW8Fzh2ldiY9XszlOeTIMTgdUQGC9YeGkxw~9hQOmyJFQSrHRQ-RwIGIjUkirEiwqgQv~1w8fMveRX9yEdWzJ3rKYSHCKXJDrUHk3f6wYdf2qskj5nLGLFC6NMOTFu7DN1zWfaOG7ppdn~dPBtu1ES92Z9m~YGcnW~PDcZ-cDnwN9vNhFuQk8ChVGnoJsVsu0xhiKbbw9aMYGDhVPjqCjKKvuKnBRBLanxGzU3uD7piaVjodLoknohN6XNqnLSTcDcZcVCp7J4fnH6QopxrUCANTV89PxTwgGCC8iy7ZuQlQihHQCIerUZ0CZBVQY~O7HhylJe-Q__",
+                  "https://s3-alpha-sig.figma.com/img/462c/1c30/5c73404962f595b8f282c749bd00fb31?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dBQkzPZ7tAmAxH0qDsnaqDVKp1kwsv717HLdQRwYK3Yea88t4lq0p5EZv~8mpBWx6jFOd7BhUnhtn9PwQMQAs-sDO5--e7ZCf4KVxqpE-PWELJobfhOCRU3TIDALk2yGifkusURW91bUnHeAPUiIxcAola5UW06PiUofmIzpyHy425s2y0ovR2BnuCRZzz~axmDiPV9vNmkrwIx0P5FXuPelMtwQF8RupioSHCRwdlbKc2lVnxNNkFpPwNB-XHUiVU3hcBSp-EOAzSaTEycyM3LiXdDusbgx2YK0rlJbNq-MecufIx1rx-2~eRiYtoIjSmtRsW9BXKsfYPbCGwC7Hw__",
               fit: BoxFit.cover,
             ),
           ),

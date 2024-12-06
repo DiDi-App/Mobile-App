@@ -1,6 +1,8 @@
+import 'package:didi/src/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:didi/src/core/constants.dart';
 import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:routemaster/routemaster.dart';
@@ -10,16 +12,21 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
+    final user = (context.read<AppUserCubit>().state as AppUserLoggedIn).user;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: Constants.horizontalPadding, vertical: 2.h),
+            horizontal: Constants.horizontalPadding,
+            vertical: isTablet ? 5.h : 2.h,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Christian Nii Gyan",
+                user.name,
                 style: TextStyle(
                   color: AppThemeColors.kWhiteColor,
                   fontSize: 17.7.sp,
@@ -31,7 +38,7 @@ class SettingsPage extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "+233246027827",
+                    user.phone,
                     style: TextStyle(
                       color: AppThemeColors.kWhiteColor,
                       fontSize: 15.sp,
@@ -72,7 +79,8 @@ class SettingsPage extends StatelessWidget {
               SizedBox(height: 1.5.h),
               ListTile(
                 onTap: () {},
-                contentPadding: EdgeInsets.zero,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: isTablet ? 1.h : 0),
                 leading: SvgPicture.asset(
                   "assets/svg/payment.svg",
                   height: 2.2.h,
@@ -88,7 +96,8 @@ class SettingsPage extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {},
-                contentPadding: EdgeInsets.zero,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: isTablet ? 1.h : 0),
                 leading: SvgPicture.asset(
                   "assets/svg/telegram.svg",
                   height: 2.2.h,
@@ -104,7 +113,8 @@ class SettingsPage extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {},
-                contentPadding: EdgeInsets.zero,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: isTablet ? 1.h : 0),
                 leading: SvgPicture.asset(
                   "assets/svg/profile.svg",
                   height: 2.2.h,
@@ -120,7 +130,8 @@ class SettingsPage extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {},
-                contentPadding: EdgeInsets.zero,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: isTablet ? 1.h : 0),
                 leading: SvgPicture.asset(
                   "assets/svg/settings.svg",
                   height: 2.2.h,
@@ -136,7 +147,8 @@ class SettingsPage extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {},
-                contentPadding: EdgeInsets.zero,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: isTablet ? 1.h : 0),
                 leading: SvgPicture.asset(
                   "assets/svg/about.svg",
                   height: 2.2.h,

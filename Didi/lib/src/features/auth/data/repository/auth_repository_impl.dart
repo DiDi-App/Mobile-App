@@ -102,7 +102,6 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either<AuthFailure, UserEntity>> getLoggedInuser() async {
     try {
       final user = await _authLocalDataSource.getLoggedInUserInfo();
-      print(user);
       return right(user);
     } on AuthException catch (e) {
       return left(AuthFailure(message: e.message));

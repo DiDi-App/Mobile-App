@@ -1,3 +1,4 @@
+import 'package:didi/src/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:didi/src/core/constants.dart';
 import 'package:didi/src/core/theme/theme_colors.dart';
 import 'package:didi/src/features/listings/presentation/widgets/announcement_card.dart';
@@ -5,6 +6,7 @@ import 'package:didi/src/features/listings/presentation/widgets/custom_chip.dart
 import 'package:didi/src/features/listings/presentation/widgets/home_text_field.dart';
 import 'package:didi/src/features/listings/presentation/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -16,6 +18,9 @@ class Homepage extends StatelessWidget {
   final List<String> selectedCategories = [];
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
+    final user = (context.read<AppUserCubit>().state as AppUserLoggedIn).user;
+
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -48,25 +53,29 @@ class Homepage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      RichText(
-                        text: TextSpan(
-                          text: "Hi There ",
-                          style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16.sp,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: "Christian!",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                color: AppThemeColors.kWhiteColor,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16.5.sp,
-                              ),
+                      SizedBox(
+                        width: 70.w,
+                        child: RichText(
+                          overflow: TextOverflow.ellipsis,
+                          text: TextSpan(
+                            text: "Hi There ",
+                            style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16.sp,
                             ),
-                          ],
+                            children: [
+                              TextSpan(
+                                text: "${user.name}!",
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  color: AppThemeColors.kWhiteColor,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16.5.sp,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Text(
@@ -108,7 +117,7 @@ class Homepage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final item = Constants.markets[index];
                   return Padding(
-                    padding: const EdgeInsets.only(left: 13),
+                    padding: EdgeInsets.only(left: isTablet ? 20 : 13),
                     child: CustomChip(
                       label: item,
                       onTap: () {
@@ -132,9 +141,9 @@ class Homepage extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 18,
-                  childAspectRatio: 60 / 51,
-                  mainAxisSpacing: 2.h,
+                  crossAxisSpacing: isTablet ? 30 : 18,
+                  childAspectRatio: 1.18,
+                  mainAxisSpacing: 10,
                 ),
                 itemCount: 10,
                 itemBuilder: (context, index) {

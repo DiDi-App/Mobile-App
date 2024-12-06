@@ -18,14 +18,25 @@ class PhoneInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = Device.screenType == ScreenType.tablet;
+
     return TextFormField(
       obscureText: obscureText,
       controller: controller,
       keyboardType: keyboardType,
       cursorColor: AppThemeColors.kPrimaryButtonColor,
+      style: TextStyle(
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w500,
+        fontSize: 14.sp,
+        color: AppThemeColors.kWhiteColor,
+      ),
       decoration: InputDecoration(
         hintText: "Phone number",
-        contentPadding: EdgeInsets.symmetric(horizontal: 1.8.h, vertical: 1.h),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 1.8.h,
+          vertical: isTablet ? 1.7.h : 1.h,
+        ),
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: AppThemeColors.kWhiteColor,
